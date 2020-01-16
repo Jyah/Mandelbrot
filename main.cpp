@@ -22,9 +22,9 @@ static void meshgridTest(const cv::Range& xgv, const cv::Range& ygv, cv::Mat1i& 
     meshgrid(cv::Mat(t_x), cv::Mat(t_y), X, Y);
 }
 
-int main(int argc, char** argv) {
-    int n = 1000;
-    int max_iter = 50;
+int main(int argc, char *argv[]) {
+    int n = atoi(argv[1]);
+    int max_iter = atoi(argv[2]);
     double px[n], py[n];
     for (int k = 0; k < n; k++) {
         px[k] = (2. - (-2.)) / (n - 1.) * k-2;
@@ -53,7 +53,7 @@ int main(int argc, char** argv) {
 
     cv::Mat image(n,n,CV_8UC1,im);
     cv::Mat cm_img0;
-    applyColorMap(image, cm_img0, cv::COLORMAP_JET);
+    applyColorMap(image, cm_img0, cv::COLORMAP_HOT);
     cv::namedWindow("Display window", CV_WINDOW_AUTOSIZE);
     cv::imshow("Display window",cm_img0);
     cv::waitKey(0);
