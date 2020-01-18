@@ -1,10 +1,10 @@
 #include <cstdlib>
-#include <iostream>
 #include <opencv2/core/core.hpp>
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/highgui.hpp>
 #include <array>
 #include <opencv2/imgproc.hpp> // applyColorMap
+
 using namespace std;
 
 static void meshgrid(const cv::Mat& xgv, const cv::Mat& ygv, cv::Mat1i& X, cv::Mat1i& Y)
@@ -54,7 +54,7 @@ int main(int argc, char *argv[]) {
     cv::Mat image(n,n,CV_8UC1,im);
     cv::Mat cm_img0;
     applyColorMap(image, cm_img0, cv::COLORMAP_HOT);
-    cv::namedWindow("Display window", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("Display window", cv::WINDOW_AUTOSIZE);
     cv::imshow("Display window",cm_img0);
     cv::waitKey(0);
     return 0;
